@@ -369,3 +369,5 @@ git: «ls» не является командой git. Смотрите «git -
 итого 4
 -rw-rw-r-- 1 hillel hillel 877 мая 23 14:00 main.py
 (venv) hillel@hillel-MS-7817:~/test3$ 
+git diff
+git pull origin master
