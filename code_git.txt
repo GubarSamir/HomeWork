@@ -1,0 +1,371 @@
+(venv) hillel@hillel-MS-7817:~/samir$ git --version
+git version 2.17.1
+(venv) hillel@hillel-MS-7817:~/samir$ git init
+Инициализирован пустой репозиторий Git в /home/hillel/samir/.git/
+(venv) hillel@hillel-MS-7817:~/samir$ three .git
+
+Command 'three' not found, did you mean:
+
+  command 'tree' from snap tree (1.8.0+pkg-3fd6)
+  command 'ttree' from deb libtemplate-perl
+  command 'tree' from deb tree
+
+See 'snap info <snapname>' for additional versions.
+
+(venv) hillel@hillel-MS-7817:~/samir$ tree .git
+.git
+├── branches
+├── config
+├── description
+├── HEAD
+├── hooks
+│   ├── applypatch-msg.sample
+│   ├── commit-msg.sample
+│   ├── fsmonitor-watchman.sample
+│   ├── post-update.sample
+│   ├── pre-applypatch.sample
+│   ├── pre-commit.sample
+│   ├── prepare-commit-msg.sample
+│   ├── pre-push.sample
+│   ├── pre-rebase.sample
+│   ├── pre-receive.sample
+│   └── update.sample
+├── info
+│   └── exclude
+├── objects
+│   ├── info
+│   └── pack
+└── refs
+    ├── heads
+    └── tags
+
+9 directories, 15 files
+(venv) hillel@hillel-MS-7817:~/samir$ git log
+fatal: ваша текущая ветка «master» еще не содержит ни одного коммита
+(venv) hillel@hillel-MS-7817:~/samir$ git status
+На ветке master
+
+Еще нет коммитов
+
+Неотслеживаемые файлы:
+  (используйте «git add <файл>…», чтобы добавить в то, что будет включено в коммит)
+
+        .idea/
+        main.py
+        venv/
+
+ничего не добавлено в коммит, но есть неотслеживаемые файлы (используйте «git add», чтобы отслеживать их)
+(venv) hillel@hillel-MS-7817:~/samir$ 
+(venv) hillel@hillel-MS-7817:~/samir$ 
+(venv) hillel@hillel-MS-7817:~/samir$ 
+(venv) hillel@hillel-MS-7817:~/samir$ git add main.py
+(venv) hillel@hillel-MS-7817:~/samir$ git status
+На ветке master
+
+Еще нет коммитов
+
+Изменения, которые будут включены в коммит:
+  (используйте «git rm --cached <файл>…», чтобы убрать из индекса)
+
+        новый файл:    main.py
+
+Неотслеживаемые файлы:
+  (используйте «git add <файл>…», чтобы добавить в то, что будет включено в коммит)
+
+        .idea/
+        venv/
+
+(venv) hillel@hillel-MS-7817:~/samir$ git commit -m "Added new file with auxilary functionsl"
+[master (корневой коммит) 4f7f74a] Added new file with auxilary functionsl
+ 1 file changed, 47 insertions(+)
+ create mode 100644 main.py
+(venv) hillel@hillel-MS-7817:~/samir$ git log
+commit 4f7f74a129b68421b57d59a22b6e3e88491df3df (HEAD -> master)
+Author: Maxkindev <maxkindev@gmail.com>
+Date:   Sun May 23 13:09:00 2021 +0300
+
+    Added new file with auxilary functionsl
+(venv) hillel@hillel-MS-7817:~/samir$ git status
+На ветке master
+Неотслеживаемые файлы:
+  (используйте «git add <файл>…», чтобы добавить в то, что будет включено в коммит)
+
+        .idea/
+        venv/
+
+ничего не добавлено в коммит, но есть неотслеживаемые файлы (используйте «git add», чтобы отслеживать их)
+(venv) hillel@hillel-MS-7817:~/samir$ git status
+На ветке master
+Изменения, которые не в индексе для коммита:
+  (используйте «git add <файл>…», чтобы добавить файл в индекс)
+  (используйте «git checkout -- <файл>…», чтобы отменить изменения
+   в рабочем каталоге)
+
+        изменено:      main.py
+
+Неотслеживаемые файлы:
+  (используйте «git add <файл>…», чтобы добавить в то, что будет включено в коммит)
+
+        .idea/
+        venv/
+
+нет изменений добавленных для коммита
+(используйте «git add» и/или «git commit -a»)
+(venv) hillel@hillel-MS-7817:~/samir$ git commit -m "Added new file with auxilary functionsl"
+На ветке master
+Изменения, которые не в индексе для коммита:
+        изменено:      main.py
+
+Неотслеживаемые файлы:
+        .idea/
+        venv/
+
+нет изменений добавленных для коммита
+(venv) hillel@hillel-MS-7817:~/samir$ git commit -m "Added"
+На ветке master
+Изменения, которые не в индексе для коммита:
+        изменено:      main.py
+
+Неотслеживаемые файлы:
+        .idea/
+        venv/
+
+нет изменений добавленных для коммита
+(venv) hillel@hillel-MS-7817:~/samir$ git init
+Переинициализирован существующий репозиторий Git в /home/hillel/samir/.git/
+(venv) hillel@hillel-MS-7817:~/samir$ git commit -m "Added"
+На ветке master
+Изменения, которые не в индексе для коммита:
+        изменено:      main.py
+
+Неотслеживаемые файлы:
+        .idea/
+        venv/
+
+нет изменений добавленных для коммита
+(venv) hillel@hillel-MS-7817:~/samir$ git log
+commit 4f7f74a129b68421b57d59a22b6e3e88491df3df (HEAD -> master)
+Author: Maxkindev <maxkindev@gmail.com>
+Date:   Sun May 23 13:09:00 2021 +0300
+
+    Added new file with auxilary functionsl
+(venv) hillel@hillel-MS-7817:~/samir$ git status
+На ветке master
+Изменения, которые не в индексе для коммита:
+  (используйте «git add <файл>…», чтобы добавить файл в индекс)
+  (используйте «git checkout -- <файл>…», чтобы отменить изменения
+   в рабочем каталоге)
+
+        изменено:      main.py
+
+Неотслеживаемые файлы:
+  (используйте «git add <файл>…», чтобы добавить в то, что будет включено в коммит)
+
+        .idea/
+        gitignor
+        venv/
+
+нет изменений добавленных для коммита
+(используйте «git add» и/или «git commit -a»)
+(venv) hillel@hillel-MS-7817:~/samir$ git status
+На ветке master
+Изменения, которые не в индексе для коммита:
+  (используйте «git add <файл>…», чтобы добавить файл в индекс)
+  (используйте «git checkout -- <файл>…», чтобы отменить изменения
+   в рабочем каталоге)
+
+        изменено:      main.py
+
+Неотслеживаемые файлы:
+  (используйте «git add <файл>…», чтобы добавить в то, что будет включено в коммит)
+
+        .idea/
+        gitignor
+        venv/
+
+нет изменений добавленных для коммита
+(используйте «git add» и/или «git commit -a»)
+(venv) hillel@hillel-MS-7817:~/samir$ git status
+На ветке master
+Изменения, которые не в индексе для коммита:
+  (используйте «git add <файл>…», чтобы добавить файл в индекс)
+  (используйте «git checkout -- <файл>…», чтобы отменить изменения
+   в рабочем каталоге)
+
+        изменено:      main.py
+
+Неотслеживаемые файлы:
+  (используйте «git add <файл>…», чтобы добавить в то, что будет включено в коммит)
+
+        .idea/
+        gitignor
+        venv/
+
+нет изменений добавленных для коммита
+(используйте «git add» и/или «git commit -a»)
+(venv) hillel@hillel-MS-7817:~/samir$ git status
+На ветке master
+Изменения, которые будут включены в коммит:
+  (используйте «git reset HEAD <файл>…», чтобы убрать из индекса)
+
+        новый файл:    .gitignore
+
+Изменения, которые не в индексе для коммита:
+  (используйте «git add <файл>…», чтобы добавить файл в индекс)
+  (используйте «git checkout -- <файл>…», чтобы отменить изменения
+   в рабочем каталоге)
+
+        изменено:      .gitignore
+        изменено:      main.py
+
+Неотслеживаемые файлы:
+  (используйте «git add <файл>…», чтобы добавить в то, что будет включено в коммит)
+
+        gitignor
+        venv/
+
+(venv) hillel@hillel-MS-7817:~/samir$ git status
+На ветке master
+Изменения, которые будут включены в коммит:
+  (используйте «git reset HEAD <файл>…», чтобы убрать из индекса)
+
+        новый файл:    .gitignore
+
+Изменения, которые не в индексе для коммита:
+  (используйте «git add <файл>…», чтобы добавить файл в индекс)
+  (используйте «git checkout -- <файл>…», чтобы отменить изменения
+   в рабочем каталоге)
+
+        изменено:      .gitignore
+        изменено:      main.py
+
+Неотслеживаемые файлы:
+  (используйте «git add <файл>…», чтобы добавить в то, что будет включено в коммит)
+
+        gitignor
+
+(venv) hillel@hillel-MS-7817:~/samir$ git commit -m "Added rest"
+[master 42015d8] Added rest
+ 1 file changed, 1 insertion(+)
+ create mode 100644 .gitignore
+(venv) hillel@hillel-MS-7817:~/samir$ git log
+commit 42015d8a019886ee6cd63e50a984e7bf8dac9bfd (HEAD -> master)
+Author: Maxkindev <maxkindev@gmail.com>
+Date:   Sun May 23 13:26:03 2021 +0300
+
+    Added rest
+
+commit 4f7f74a129b68421b57d59a22b6e3e88491df3df
+Author: Maxkindev <maxkindev@gmail.com>
+Date:   Sun May 23 13:09:00 2021 +0300
+
+    Added new file with auxilary functionsl
+(venv) hillel@hillel-MS-7817:~/samir$ git status
+На ветке master
+Изменения, которые не в индексе для коммита:
+  (используйте «git add <файл>…», чтобы добавить файл в индекс)
+  (используйте «git checkout -- <файл>…», чтобы отменить изменения
+   в рабочем каталоге)
+
+        изменено:      .gitignore
+        изменено:      main.py
+
+Неотслеживаемые файлы:
+  (используйте «git add <файл>…», чтобы добавить в то, что будет включено в коммит)
+
+        gitignor
+
+нет изменений добавленных для коммита
+(используйте «git add» и/или «git commit -a»)
+(venv) hillel@hillel-MS-7817:~/samir$ git commit -m "Added rest"
+На ветке master
+Изменения, которые не в индексе для коммита:
+        изменено:      .gitignore
+        изменено:      main.py
+
+нет изменений добавленных для коммита
+(venv) hillel@hillel-MS-7817:~/samir$ git status
+На ветке master
+Изменения, которые не в индексе для коммита:
+  (используйте «git add <файл>…», чтобы добавить файл в индекс)
+  (используйте «git checkout -- <файл>…», чтобы отменить изменения
+   в рабочем каталоге)
+
+        изменено:      .gitignore
+        изменено:      main.py
+
+нет изменений добавленных для коммита
+(используйте «git add» и/или «git commit -a»)
+(venv) hillel@hillel-MS-7817:~/samir$ git log
+commit 42015d8a019886ee6cd63e50a984e7bf8dac9bfd (HEAD -> master)
+Author: Maxkindev <maxkindev@gmail.com>
+Date:   Sun May 23 13:26:03 2021 +0300
+
+    Added rest
+
+commit 4f7f74a129b68421b57d59a22b6e3e88491df3df
+Author: Maxkindev <maxkindev@gmail.com>
+Date:   Sun May 23 13:09:00 2021 +0300
+
+    Added new file with auxilary functionsl
+(venv) hillel@hillel-MS-7817:~/samir$ git status
+На ветке master
+Изменения, которые не в индексе для коммита:
+  (используйте «git add <файл>…», чтобы добавить файл в индекс)
+  (используйте «git checkout -- <файл>…», чтобы отменить изменения
+   в рабочем каталоге)
+
+        изменено:      .gitignore
+        изменено:      main.py
+
+нет изменений добавленных для коммита
+(используйте «git add» и/или «git commit -a»)
+(venv) hillel@hillel-MS-7817:~/samir$ git config user.email "gubarsamir@gmail.com"
+(venv) hillel@hillel-MS-7817:~/samir$ git config user.name "gubarsamir@gmail.com"
+(venv) hillel@hillel-MS-7817:~/samir$ cat .git/config
+[core]
+        repositoryformatversion = 0
+        filemode = true
+        bare = false
+        logallrefupdates = true
+[user]
+        email = gubarsamir@gmail.com
+        name = gubarsamir@gmail.com
+(venv) hillel@hillel-MS-7817:~/samir$ git remote add origin https://github.com/GubarSamir/flask_test.git
+(venv) hillel@hillel-MS-7817:~/samir$ git remote -v
+origin  https://github.com/GubarSamir/flask_test.git (fetch)
+origin  https://github.com/GubarSamir/flask_test.git (push)
+(venv) hillel@hillel-MS-7817:~/samir$ git push origin master
+Username for 'https://github.com': gubarsamir
+Password for 'https://gubarsamir@github.com': 
+Подсчет объектов: 6, готово.
+Delta compression using up to 4 threads.
+Сжатие объектов: 100% (4/4), готово.
+Запись объектов: 100% (6/6), 851 bytes | 851.00 KiB/s, готово.
+Total 6 (delta 0), reused 0 (delta 0)
+To https://github.com/GubarSamir/flask_test.git
+ * [new branch]      master -> master
+(venv) hillel@hillel-MS-7817:~/samir$ cd ..
+(venv) hillel@hillel-MS-7817:~$ mkdir test3
+(venv) hillel@hillel-MS-7817:~$ cd test3
+(venv) hillel@hillel-MS-7817:~/test3$ git clone https://github.com/GubarSamir/flask_test.git .
+Клонирование в «.»…
+remote: Enumerating objects: 6, done.
+remote: Counting objects: 100% (6/6), done.
+remote: Compressing objects: 100% (4/4), done.
+remote: Total 6 (delta 0), reused 6 (delta 0), pack-reused 0
+Распаковка объектов: 100% (6/6), готово.
+(venv) hillel@hillel-MS-7817:~/test3$ git ls -l
+git: «ls» не является командой git. Смотрите «git --help».
+
+Самые похожие команды:
+        log
+(venv) hillel@hillel-MS-7817:~/test3$ git ls --l
+git: «ls» не является командой git. Смотрите «git --help».
+
+Самые похожие команды:
+        log
+(venv) hillel@hillel-MS-7817:~/test3$ ls -l
+итого 4
+-rw-rw-r-- 1 hillel hillel 877 мая 23 14:00 main.py
+(venv) hillel@hillel-MS-7817:~/test3$ 
