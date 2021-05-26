@@ -7,13 +7,6 @@ from flask import jsonify
 
 app = Flask(__name__)
 
-def format_records(lst):
-    return '<br>'.join(str(elem) for elem in lst)
-
-def format_list(lst):
-    return '<br>'.join(lst)
-
-
 def execute_query(query, args=()):
     db_path = os.path.join(os.getcwd(), 'chinook.db')
     db_path = 'chinook.db'
@@ -24,41 +17,26 @@ def execute_query(query, args=()):
     records = cur.fetchall()
     return records
 
+def format_records(lst):
+    return '<br>'.join(str(elem) for elem in lst)
+
+def clear_list(item):
+    result = [j for i in item for j in i]
+    return str(sum(result))
+
 
 @app.route("/unique_names")
-@use_kwargs({
-    "first_name": fields.Str(
-        required=False
-    )},
-    location="query"
-)
-def get_unique_names(first_name=None):
+def get_unique_names():
     query = f"select FirstName from customers"
-    where_filter = {}
-    if first_name:
-        where_filter['FirstName'] = first_name
-    if where_filter:
-        query += ' WHERE ' + ' OR '.join(f'{k}=\'{v}\'' for k, v in where_filter.items())
     records = execute_query(query)
-    return format_records(set(records))
+    return str(len(set(records)))
 
 
 @app.route("/tracks_count")
-@use_kwargs({
-    "get_name": fields.Str(
-        required=False
-    )},
-    location="query"
-)
-def get_tracks_count(get_name=None):
+def get_tracks_count():
     query = f"SELECT COUNT(*) FROM tracks"
-    where_filter = {}
-    if get_name:
-        where_filter['Name'] = get_name
-    if where_filter:
-        query += ' WHERE ' + ' OR '.join(f'{k}=\'{v}\'' for k, v in where_filter.items())
     records = execute_query(query)
-    return format_records(records)
+    return clear_list(records)
 
 
 @app.route("/")
@@ -80,28 +58,16 @@ def get_customers(city=None, country=None):
     if country:
         where_filter['Country'] = country
     if where_filter:
-        query += ' WHERE ' + ' OR '.join(f'{k}=\'{v}\'' for k, v in where_filter.items())
+        query += ' WHERE ' + ' AND '.join(f'{k}=\'{v}\'' for k, v in where_filter.items())
     records = execute_query(query)
     return format_records(records)
 
 
 @app.route("/sales")
 def get_sales():
-    unit_price = f"select UnitPrice from invoice_items"
-    quantity = f"select Quantity from invoice_items"
-    records = execute_query(quantity)
-    records2 = execute_query(unit_price)
-
-    return str(sum_price(records) * sum_price(records2))
-
-
-def sum_price(item):
-    summa = []
-    for i in item:
-        for j in i:
-            summa.append(j)
-    return sum(summa)
-
+    query = f"select SUM(UnitPrice * Quantity) from invoice_items"
+    records = execute_query(query)
+    return clear_list(records)
 
 
 if __name__=='__main__':
